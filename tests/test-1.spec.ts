@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { InventoryPage } from '../pages/InventoryPage';
 
-test.use({ storageState: "./.auth/user.json" });
+// test.use({ storageState: "./.auth/user.json" });
 
 test('test', async ({ page }) => {
   await page.goto('https://www.saucedemo.com/inventory.html')
@@ -15,3 +15,9 @@ test('test', async ({ page }) => {
   console.log( priceItem);
   console.log(descriptionItem);
 });
+
+
+
+  test("test-1", async({page})=>{
+  await page.goto('https://www.saucedemo.com')
+})

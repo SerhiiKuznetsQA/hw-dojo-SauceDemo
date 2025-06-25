@@ -19,11 +19,19 @@ export class LoginPage {
     async navigateToLogin(){
         await this.page.goto(`/`)
     }
+    async navigateToLoginForFixture(){
+        await this.page.goto(`https://www.saucedemo.com`)
+    }
 
     
-    async fillLoginInput(){
+    // async fillLoginInput(){
+    //     const authData = getAuthData()
+    //     await this.userNameInput.fill(authData?.username)
+    //     await this.passwordInput.fill(authData?.password)
+    // }
+    async fillLoginInput(email:string){
         const authData = getAuthData()
-        await this.userNameInput.fill(authData?.username)
+        await this.userNameInput.fill(email)
         await this.passwordInput.fill(authData?.password)
     }
     

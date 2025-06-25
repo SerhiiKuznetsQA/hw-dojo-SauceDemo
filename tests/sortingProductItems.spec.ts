@@ -1,6 +1,7 @@
 import { expect } from "@playwright/test";
 import test from "@playwright/test";
 import { InventoryPage } from "../pages/InventoryPage";
+
 test.use({ storageState: "./.auth/user.json" });
 
 
