@@ -7,6 +7,7 @@ export class LoginPage {
     userNameInput: Locator;
     passwordInput: Locator;
     singUpBtn: Locator;
+    //Додати Локатор до Еррору
 
     constructor(page:Page){
         this.page = page;
@@ -15,7 +16,7 @@ export class LoginPage {
         this.singUpBtn = page.locator('[data-test="login-button"]')
     }
 
-    async navigateTo(){
+    async navigateToLogin(){
         await this.page.goto(`/`)
     }
 

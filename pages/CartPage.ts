@@ -1,8 +1,11 @@
 import { Locator, Page } from "@playwright/test";
+import { BasePage } from "./BasePage";
+import { CartItemsComponent } from "../components/CartITemsComponent";
 
 
-export class CartPage {
-    page:Page;
+export class CartPage extends BasePage {
+    // page:Page;
+    cartComponent: CartItemsComponent
     titleCategory:Locator;
     checkoutBtn:Locator;
     cartItems: Locator;
@@ -12,6 +15,9 @@ export class CartPage {
 
 
     constructor(page:Page){
+        super(page)
+        this.page = page
+        // this.cartComponent = new CartItemsComponent(this.page)
         this.titleCategory = page.locator(`[data-test="title"]`)
         this.checkoutBtn = page.getByTestId('checkout')
         this.cartItems = page.locator(`[data-test="inventory-item"]`)
@@ -21,9 +27,21 @@ export class CartPage {
 
     }
 
-    async navigateTo(){
-        await this.page.goto('/cart.html')
+
+
+    async clickCheckOutBtn(){
+        await this.checkoutBtn.click()
     }
+
+    async clickCancelBtn(){
+        await this.continueShopBtn.click()
+    }
+
+    async clickRemoveBtn(){
+        await this.removeBtn.click()
+    }
+
+  
 
 
 
