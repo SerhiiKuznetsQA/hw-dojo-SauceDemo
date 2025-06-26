@@ -7,22 +7,28 @@ import { ItemLocator } from "./ItemLocators";
 
 
 export class CartItemsComponent extends BaseComponent {
-
+  productName:string
   locators:ItemLocator = new ItemLocator(this.page)
 
+   constructor(page:Page , productName:string){
+    super(page)
+    this.productName = productName
+  }
 
-  async removeFromCartByName(productName: string) {
-    await this.locators.getRemoveBtntByName(productName)
+
+
+  async removeFromCartByName() {
+    await this.locators.getRemoveBtntByName(this.productName)
       .click();
   }
 
-  async getDescription(productName: string) {
-    return this.locators.getDescription(productName)
+  async getDescription() {
+    return this.locators.getDescription(this.productName)
       .textContent();
   }
 
-  async getItemPrice(productName: string) {
-    return this.locators.getItemPrice(productName)
+  async getItemPrice() {
+    return this.locators.getItemPrice(this.productName)
       .textContent();
   }
 

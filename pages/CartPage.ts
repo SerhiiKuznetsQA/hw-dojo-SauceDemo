@@ -4,8 +4,6 @@ import { CartItemsComponent } from "../components/CartITemsComponent";
 
 
 export class CartPage extends BasePage {
-    // page:Page;
-    cartComponent: CartItemsComponent
     titleCategory:Locator;
     checkoutBtn:Locator;
     cartItems: Locator;
@@ -16,18 +14,18 @@ export class CartPage extends BasePage {
 
     constructor(page:Page){
         super(page)
-        this.page = page
-        // this.cartComponent = new CartItemsComponent(this.page)
-        this.titleCategory = page.locator(`[data-test="title"]`)
-        this.checkoutBtn = page.getByTestId('checkout')
-        this.cartItems = page.locator(`[data-test="inventory-item"]`)
-        this.qtyInput = page.locator(`[data-test="item-quantity"]`)
+        this.titleCategory = page.locator(`//*[@data-test="title"]`)
+        this.checkoutBtn = page.getByRole('button', {name:'Checkout'})
+        this.cartItems = page.locator(`//*[@data-test="inventory-item"]`)
+        this.qtyInput = page.locator(`//*[@data-test="item-quantity"]`)
         this.removeBtn = page.getByTestId('remove-sauce-labs-backpack')
         this.continueShopBtn = page.getByTestId('continue-shopping')
 
     }
 
-
+    getProductCartItem(productName:string){
+            return new CartItemsComponent(this.page,productName)
+        }
 
     async clickCheckOutBtn(){
         await this.checkoutBtn.click()

@@ -19,10 +19,10 @@ export class InventoryPage extends BasePage {
 
     constructor(page:Page){
         super(page)
-        // this.logoHeader = page.getByText('Swag Labs')
+        this.logoHeader = page.getByText('Swag Labs')
         // // this.basketBtn = page.locator(`[data-test="shopping-cart-link"]`)
         // this.productsContainer = page.locator(`[data-test="inventory-item"]`)
-        // this.sortBtn = page.locator('[data-test="product-sort-container"]')
+        this.sortBtn = page.locator('[data-test="product-sort-container"]')
         // this.addToCartBtn = page.locator(`[class~="btn"]`)
         // this.counterBtn = page.locator(`[data-test="shopping-cart-badge"]`)
         // this.imageItemLink = page.locator(`[class="inventory_item_img"]>a`)
@@ -34,23 +34,19 @@ export class InventoryPage extends BasePage {
     getProductItem(productName:string){
         return new ProductItemsComponents(this.page,productName)
     }
-    // async navigateToInventoryPage(){
-    //    await this.page.goto('/inventory.html')
-    // }
+    async navigateToInventoryPage(){
+       await this.page.goto('/inventory.html')
+    }
 
-    // async getSort(params:string){
-    //     await this.sortBtn.selectOption(params)
-    // }
+    async getSort(params:string){
+        await this.sortBtn.selectOption(params)
+    }
 
-    // async navigateToCard(){
-    //     this.basketBtn.click()
-    // }
+    async getProductsObj(index:number){
+        return this.productsContainer.nth(index)
+    }
 
-    // async getProductsObj(index:number){
-    //     return this.productsContainer.nth(index)
-    // }
-
-    // async addToCard(index:number){
-    //     await this.addToCartBtn.nth(index).click()
-    // }
+    async addToCard(index:number){
+        await this.addToCartBtn.nth(index).click()
+    }
 }

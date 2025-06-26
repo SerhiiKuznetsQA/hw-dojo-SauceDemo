@@ -25,7 +25,5 @@ export const test = base.extend<Fixtures>({
       }
       await use(storageStatePath);
     }
-
-    console.log("StorageState");
   },
 });

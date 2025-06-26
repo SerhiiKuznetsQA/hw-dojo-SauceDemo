@@ -15,7 +15,7 @@ export abstract class BasePage{
     }
 
     async waitforReload(){
-        await this.page.waitForLoadState()
+        await this.page.waitForLoadState('networkidle')
     }
 
     async clickToCart(){

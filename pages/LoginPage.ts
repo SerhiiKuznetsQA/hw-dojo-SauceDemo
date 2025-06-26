@@ -23,12 +23,7 @@ export class LoginPage {
         await this.page.goto(`https://www.saucedemo.com`)
     }
 
-    
-    // async fillLoginInput(){
-    //     const authData = getAuthData()
-    //     await this.userNameInput.fill(authData?.username)
-    //     await this.passwordInput.fill(authData?.password)
-    // }
+
     async fillLoginInput(email:string){
         const authData = getAuthData()
         await this.userNameInput.fill(email)

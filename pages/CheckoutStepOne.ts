@@ -10,9 +10,6 @@ interface CheckOutUserData{
 export class CheckoutStepOne{
     page:Page;
     titleCategory: Locator; 
-    // firstNameInput: Locator;
-    // lastNameInput : Locator;
-    // zipInput:Locator;
     cancelBtn:Locator;
     continueBtn:Locator;
     errorMessage:Locator;
@@ -20,13 +17,9 @@ export class CheckoutStepOne{
 
 constructor(page:Page){
     this.page = page
-    this.titleCategory = page.locator(`[data-test="title"]`)
-    // this.firstNameInput = page.getByPlaceholder(`First Name`)
-    // this.lastNameInput = page.getByPlaceholder('Last Name')
-    // this.zipInput = page.getByPlaceholder('placeholder="Zip/Postal Code"')
-    // this.errorMessage = page.locator(`[class='error-message-container']`)
+    this.titleCategory = page.locator(`//*[@data-test="title"]`)
     this.cancelBtn = page.getByTestId('cancel')
-    this.continueBtn = page.getByTestId('continue')
+    this.continueBtn = page.getByRole('button', {name: "Continue"})
 
 }
 async navigateToCheckout(){
@@ -37,6 +30,10 @@ async fillForm(data:CheckOutUserData){
     for (const key in data) {
         await this.page.getByRole('textbox', {name:key}).fill(data[key])
     }
+}
+
+async clickContinueBtn(){
+    await this.continueBtn.click()
 }
 
 
