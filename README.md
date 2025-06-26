@@ -1,43 +1,66 @@
-# hw-dojo-SauceDemo
-🛒 Playwright Automation Homework — SauceDemo E2E
-Опис завдання
-Цей репозиторій містить End-to-End тест для сайту SauceDemo, написаний з використанням Playwright і патерну Page Object Model (POM).
+ What This Project Covers
+This project automates a core user journey for SauceDemo, including:
 
-📌 Ціль тесту
-Перевірити повний процес покупки:
+🔐 Login with different user roles (standard_user, error_user, etc.)
 
-Авторизація
+🛒 Adding products to the cart
 
-Додавання товару до корзини
+✅ Completing the checkout process successfully
 
-Оформлення замовлення
+🎭 Testing behavior with a user having a visual role
 
-Перевірка успішної покупки
+💾 Session caching via storageState to optimize speed
 
-✅ Кроки тесту
-Перехід на сайт: https://www.saucedemo.com/
+🧱 Page Object Model for code modularity
 
-Логін під валідним користувачем
+🧪 Custom fixtures for parameterized user login
 
-Додавання будь-якого товару в корзину
 
-Перехід у корзину
+🚀 Getting Started
+Install dependencies
+bash
 
-Перевірка, що товар доданий
+npm install
 
-Перехід на Checkout
+Run all tests
+bash
 
-Введення випадкових даних: FirstName, LastName, Zip
+npx playwright test
 
-Перевірка, що це той самий товар
+Run specific test
+bash
 
-Завершення покупки (Finish)
+npx playwright test tests/SK_1_login.spec.ts
+Run with HTML report
+bash
 
-Перевірка повідомлення про успішне замовлення
+npx playwright test --reporter=html
+npx playwright show-report
 
-⚙️ Використані технології
+👤 User Roles
+Login is handled using the userLogin fixture.
+
+ts
+
+Available test users from SauceDemo:
+
+standard_user
+
+problem_user
+
+performance_glitch_user
+
+error_user
+
+Login sessions are cached
+
+🧱 Tech Stack
 Playwright
 
-TypeScript / JavaScript
+TypeScript
 
 Page Object Model (POM)
+
+Custom fixtures
+
+Reusable storageState (auth)
