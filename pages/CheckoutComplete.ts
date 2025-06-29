@@ -1,24 +1,21 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page } from '@playwright/test';
 
+export class CheckoutComplete {
+  page: Page;
+  completeMsg: Locator;
+  backHomeBtn: Locator;
 
-export class CheckOutComplete {
-    page:Page;
-    completeMsg: Locator;
-    backHomeBtn: Locator;
-    
-    constructor(page:Page){
-        this.page = page;
-        this.completeMsg = page.locator(`//*[@data-test="complete-text"]`)
-        this.backHomeBtn = page.getByRole('button', {name : "Back Home"})
-    }
+  constructor(page: Page) {
+    this.page = page;
+    this.completeMsg = page.locator(`//*[@data-test="complete-text"]`);
+    this.backHomeBtn = page.getByRole('button', { name: 'Back Home' });
+  }
 
-    
+  async getCompleteMsg() {
+    return await this.completeMsg.textContent();
+  }
 
-     async getCompleteMsg(){
-        return await this.completeMsg.textContent()
-     }
-
-     async clickBackHomeBtn(){
-        await this.backHomeBtn.click()
-     }
+  async clickBackHomeBtn() {
+    await this.backHomeBtn.click();
+  }
 }

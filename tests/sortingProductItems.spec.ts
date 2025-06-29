@@ -1,10 +1,9 @@
-import { expect } from "@playwright/test";
+import { expect } from '@playwright/test';
 // import test from "@playwright/test";
-import { test } from "../pages/fixture/fixture";
-import { InventoryPage } from "../pages/InventoryPage";
+import { InventoryPage } from '../pages/InventoryPage';
+import { test } from './fixture/fixture';
 
-
-test.use({ userLogin: "standard_user" });
+test.use({ userLogin: 'standard_user' });
 
 // test('SK_2 Product item should sorted from Z to A',{tag:"@sortingZtoA"}, async({page})=>{
 //     const inventoryPage = new InventoryPage(page)

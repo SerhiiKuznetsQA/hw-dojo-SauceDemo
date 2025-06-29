@@ -1,49 +1,28 @@
-import { Page } from "@playwright/test";
+import { Page } from '@playwright/test';
 
+export class ItemLocators {
+  private page: Page;
+  constructor(page: Page) {
+    this.page = page;
+  }
 
-export class ItemLocator {
-   private page:Page
-    constructor(page:Page) {
-        this.page = page
-    }
-
-
-    getProductTitleByName = (productName: string) =>
+  getProductTitleByName = (productName: string) =>
     this.page
-      .getByRole("link", { name: productName })
+      .getByRole('link', { name: productName })
       .locator(`xpath=ancestor::*[@data-test="inventory-item"]`);
 
-    getAddToCartByName = (productName: string) => 
-    this.getProductTitleByName(productName)
-      .getByRole("button", { name: "Add to cart" })
-  
+  getAddToCartByName = (productName: string) =>
+    this.getProductTitleByName(productName).getByRole('button', { name: 'Add to cart' });
 
+  getRemoveBtntByName = (productName: string) =>
+    this.getProductTitleByName(productName).getByRole('button', { name: 'Remove' });
 
-  getRemoveBtntByName = (productName: string) => 
-    this.getProductTitleByName(productName)
-      .getByRole("button", { name: "Remove" })
-  
+  getDescription = (productName: string) =>
+    this.getProductTitleByName(productName).locator(`[data-test="inventory-item-desc"]`);
 
-  getDescription = (productName: string)=> 
-    this.getProductTitleByName(productName)
-      .locator(`[data-test="inventory-item-desc"]`)
-    
-  
+  getItemPrice = (productName: string) =>
+    this.getProductTitleByName(productName).locator(`[data-test="inventory-item-price"]`);
 
-  getItemPrice = (productName: string)=> 
-    this.getProductTitleByName(productName)
-      .locator(`[data-test="inventory-item-price"]`)
-    
-  
-
-    getImageItem =(productName: string)  =>
-    this.getProductTitleByName(productName)
-      .getByRole("img", { name: productName })
-
-
-      
-
-   
-        
-   
+  getImageItem = (productName: string) =>
+    this.getProductTitleByName(productName).getByRole('img', { name: productName });
 }

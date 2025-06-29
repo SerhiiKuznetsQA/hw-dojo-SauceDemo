@@ -1,5 +1,5 @@
-import { Locator, Page } from "@playwright/test";
-import { CartItemsComponent } from "../components/CartITemsComponent";
+import { Locator, Page } from '@playwright/test';
+import { CartItemsComponent } from '../components/CartiTemsComponent';
 
 export class CheckoutStepTwo {
   page: Page;
@@ -17,7 +17,7 @@ export class CheckoutStepTwo {
     this.itemTotal = page.locator(`//*[@data-test="subtotal-label"]`);
     this.taxTotal = page.locator(`//*[@data-test="tax-label"]`);
     this.total = page.locator(`//*[@data-test="total-label"]`);
-    this.finishBtn = page.getByRole("button", { name: "Finish" });
+    this.finishBtn = page.getByRole('button', { name: 'Finish' });
   }
 
   getProductCartItem(productName: string) {

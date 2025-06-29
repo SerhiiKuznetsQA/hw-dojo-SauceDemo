@@ -1,4 +1,4 @@
- What This Project Covers
+What This Project Covers
 This project automates a core user journey for SauceDemo, including:
 
 🔐 Login with different user roles (standard_user, error_user, etc.)
@@ -14,7 +14,6 @@ This project automates a core user journey for SauceDemo, including:
 🧱 Page Object Model for code modularity
 
 🧪 Custom fixtures for parameterized user login
-
 
 🚀 Getting Started
 Install dependencies
