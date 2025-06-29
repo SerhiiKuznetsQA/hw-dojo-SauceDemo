@@ -4,7 +4,7 @@
   "description": "🛒 Playwright Automation Homework — SauceDemo E2E\r Опис завдання\r Цей репозиторій містить End-to-End тест для сайту SauceDemo, написаний з використанням Playwright і патерну Page Object Model (POM).",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky" ,
+    "prepare": "husky",
     "test": "playwright test"
   },
   "keywords": [],
