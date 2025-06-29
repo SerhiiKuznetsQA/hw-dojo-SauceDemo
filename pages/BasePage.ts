@@ -3,7 +3,7 @@ import { Locator, Page } from '@playwright/test';
 export abstract class BasePage {
   page: Page;
   header: Header;
-  footer: Footer;
+  footer!: Footer;
   cartLink: Locator;
 
   constructor(page: Page) {
@@ -24,7 +24,7 @@ export abstract class BasePage {
 class Header {
   page: Page;
   menuBtn: Locator;
-  menuItems: Locator;
+  menuItems!: Locator;
   closeMenuBtn: Locator;
 
   constructor(page: Page) {
@@ -45,8 +45,8 @@ class Header {
 class Footer {
   page: Page;
   fblink: Locator;
-  instaLink: Locator;
-  twitLink: Locator;
+  instaLink!: Locator;
+  twitLink!: Locator;
 
   constructor(page: Page) {
     this.page = page;

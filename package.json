@@ -1,11 +1,11 @@
 {
   "name": "hw-dojo-saucedemo",
   "version": "1.0.0",
-  "type": "module",
   "description": "🛒 Playwright Automation Homework — SauceDemo E2E\r Опис завдання\r Цей репозиторій містить End-to-End тест для сайту SauceDemo, написаний з використанням Playwright і патерну Page Object Model (POM).",
   "main": "index.js",
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky" ,
+    "test": "playwright test"
   },
   "keywords": [],
   "author": "Serhii_Kuznets <testopesto7@gmail.com>",
@@ -15,6 +15,7 @@
     "@types/node": "^24.0.3",
     "eslint": "^9.30.0",
     "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-playwright": "^2.2.0",
     "eslint-plugin-prettier": "^5.5.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.2",
@@ -32,6 +33,7 @@
     "singleQuote": true,
     "tabWidth": 2,
     "trailingComma": "es5",
-    "printWidth": 100
+    "printWidth": 100,
+    "endOfLine": "lf"
   }
 }

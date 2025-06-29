@@ -1,12 +1,4 @@
 import { expect } from '@playwright/test';
-import { Page } from '@playwright/test';
-import { getAuthData } from '../utils';
-import { LoginPage } from '../pages/LoginPage';
-import { InventoryPage } from '../pages/InventoryPage';
-import { CartPage } from '../pages/CartPage';
-import { CheckoutStepOne } from '../pages/CheckoutStepOne';
-import { CheckoutStepTwo } from '../pages/CheckoutStepTwo';
-import { CheckoutComplete } from '../pages/CheckoutComplete';
 import { test } from './fixture/fixture';
 
 test.use({ userLogin: 'standard_user' });
