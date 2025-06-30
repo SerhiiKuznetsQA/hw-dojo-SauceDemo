@@ -23,7 +23,7 @@ test(
       await loginPage.pressSingUpBtn();
       expect(page.url()).toContain('/inventory.html');
     });
-
+    //test
     await test.step('User add product to the cart and match price from item with cart price', async () => {
       const item = inventoryPage.getProductItem(productName);
       await expect(inventoryPage.logoHeader).toBeVisible();
