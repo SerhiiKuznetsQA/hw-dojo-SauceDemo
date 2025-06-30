@@ -5,7 +5,7 @@ test.use({ userLogin: 'standard_user' });
 
 test(
   'SK_1  basic shipping scenario login - chose product - add to cart - buy item ',
-  { tag: '@e2e' },
+  { tag: '@basic scenario' },
   async ({
     page,
     userLogin,
@@ -33,7 +33,8 @@ test(
       expect(page.url()).toContain('/cart.html');
       const cartItem = cartPage.getProductCartItem(productName);
       const cartItemPrice = await cartItem.getItemPrice();
-      expect(priceItem).toContain(cartItemPrice);
+      const cartItemPriceText = await cartItemPrice.textContent();
+      expect(priceItem).toContainText(cartItemPriceText!);
       await cartPage.clickCheckOutBtn();
     });
 

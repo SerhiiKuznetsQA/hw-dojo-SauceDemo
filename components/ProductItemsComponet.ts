@@ -24,7 +24,7 @@ export class ProductItemsComponents extends BaseComponent {
   }
 
   async getItemPrice() {
-    return this.locators.getItemPrice(this.productName).textContent();
+    return this.locators.getItemPrice(this.productName);
   }
 
   async getImageItem() {

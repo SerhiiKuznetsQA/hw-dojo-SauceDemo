@@ -20,6 +20,6 @@ export class CartItemsComponent extends BaseComponent {
   }
 
   async getItemPrice() {
-    return this.locators.getItemPrice(this.productName).textContent();
+    return this.locators.getItemPrice(this.productName);
   }
 }
