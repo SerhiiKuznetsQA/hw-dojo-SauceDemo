@@ -1,6 +1,8 @@
 import { expect } from '@playwright/test';
 import { test } from './fixture/fixture';
+
 test.use({ userLogin: 'standard_user' });
+
 test(
   'SK_1  basic shipping scenario login - chose product - add to cart - buy item ',
   { tag: '@e2e' },
@@ -21,6 +23,7 @@ test(
       await loginPage.pressSingUpBtn();
       expect(page.url()).toContain('/inventory.html');
     });
+
     await test.step('User add product to the cart and match price from item with cart price', async () => {
       const item = inventoryPage.getProductItem(productName);
       await expect(inventoryPage.logoHeader).toBeVisible();
@@ -33,6 +36,7 @@ test(
       expect(priceItem).toContain(cartItemPrice);
       await cartPage.clickCheckOutBtn();
     });
+
     await test.step('User Filled Address Form and going to second step', async () => {
       expect(page.url()).toContain('/checkout-step-one.html');
       await checkoutStepOnePage.fillForm({
